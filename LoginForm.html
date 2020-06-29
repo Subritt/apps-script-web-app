@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <?!= //include("view-css"); ?>
+  </head>
+  <body>
+    <p id="demo"></p>
+    <h3 style="text-align:center; font-family: cursive; margin:3%">Login Page</h3>
+    
+    <div class="container" style="padding-left:20%; padding-right:20%">
+    <div class="row">
+      <div class="input-field col s12">
+        <label for="username">username</label>
+        <input id="login_username" type="text" class="validate">
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <label for="password">Password</label>
+        <input id="login_pwd" type="password" class="validate">
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <p>
+          <label>
+            <input type="checkbox" id="view_pwd_checkbox" onClick="show_password()"/>
+            <span>View Password</span>
+          </label>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <a class="waves-effect waves-light btn blue darken-3" id="login_btn"><i class="material-icons right">computer</i>Login</a>
+        <a href="<?= ScriptApp.getService().getUrl(); ?>?v=profile" class="waves-effect waves-light btn blue darken-3" id="login_btn"><i class="material-icons right">account_circle</i>Profile</a>
+      </div>
+    </div>
+    </div> <!-- CLOSE CONTAINER -->
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <?!= include("view-js"); ?>
+    
+  </body>
+</html>

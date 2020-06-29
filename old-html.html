@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <?!= include("view-css"); ?>
+  </head>
+  <body>
+    <h1>Login Page</h1>
+
+    <form id="login_form">
+      <div class="login_form_container">
+        <label for="username">username:</label>
+        <input type="text" id="login_username" name="username" required><br><br>
+        <label for="password">password:</label>
+        <input type="password" id="login_pwd" name="password" required>
+        <input type="checkbox" id="view_pwd_checkbox" onClick="show_password()"> view password
+        <button type="submit" id="login_btn">Login</button>
+      </div>
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <?!= include("view-js"); ?>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <?!= //include("view-css"); ?>
+  </head>
+  <body>
+    <p id="demo"></p>
+    <h3 style="text-align:center; font-family: cursive; margin:3%"><?=title?></h3>
+    
+    <div class="container">
+    <div class="row">
+      <div class="col s12">
+       <table id="data_table" class="striped">
+        <thead>
+          <tr>
+              <th>ID</th>
+              <th>Question</th>
+              <th>Description</th>
+          </tr>
+        </thead>
+
+        <tbody id="question_data">
+          
+        </tbody>
+      </table>
+      </div>
+    </div>
+    </div> <!-- CLOSE CONTAINER -->
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <?!= include("profile-js"); ?>
+    
+  </body>
+</html>

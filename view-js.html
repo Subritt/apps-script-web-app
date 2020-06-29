@@ -1,0 +1,50 @@
+<script>
+  document.getElementById("login_btn").addEventListener("click", call_user_login);
+  
+  function show_password(){
+   console.log("checkbox val : " + document.getElementById("view_pwd_checkbox").value);
+   var check_box = document.getElementById("login_pwd");
+     if(check_box.type === "password"){
+       check_box.type = "text";
+     }else{
+       check_box.type = "password";
+    }
+  }
+  
+  function call_user_login(){
+    var userinfo = {};
+    userinfo.user_name = document.getElementById("login_username").value;
+    userinfo.password = document.getElementById("login_pwd").value;
+    
+    google.script.run.withSuccessHandler(onSuccess).user_login(userinfo);
+    
+    document.getElementById("login_username").value = "";
+    document.getElementById("login_pwd").value = "";
+    document.getElementById("view_pwd_checkbox").checked = false;
+    document.getElementById("login_pwd").type = "password";
+  }
+  
+  function onSuccess(login_return){
+    console.log("flag : " + login_return[0] + "\n" + "full name : " + login_return[1]);
+    if(login_return[0] == 1){
+      get_questions(login_return[2]);
+      google.script.run.withSuccessHandler(
+        function(url){
+          window.open(url+"?v=profile", "_top");
+        }
+      ).web_app_url();
+      alert("Hello " + login_return[1] + " 🙂");
+    }else{
+      alert("Invalid username or password!!! 😕");
+    }
+    return;
+  }
+  
+  function get_questions(user_id){
+    google.script.run.withSuccessHandler(function(questions){
+      localStorage.setItem("questions", JSON.stringify(questions));
+      console.log("Questions : \n" + questions);
+    }).get_questions(user_id);
+//    return;
+  }
+</script>
