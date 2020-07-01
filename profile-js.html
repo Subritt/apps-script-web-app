@@ -35,7 +35,7 @@
    */
    document.getElementById('logout_btn').addEventListener('click', function(){
      M.toast({html : "Logging out...🐱‍🏍"});
-     localStorage.removeItem('questions');
+     localStorage.removeItem('userid');
      google.script.run.withSuccessHandler(
        function(url){
          window.open(url, "_top");
