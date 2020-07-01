@@ -7,18 +7,14 @@ Route.path = function(route, callback){
 Rendering Html from a file
 */
 function doGet(e){
-  //  Logger.log(e.parameters);
-  
   Route.path("profile", profile_page);
   Route.path("covid19_dashboard", covid19_page);
+  Route.path("login", login_page);
   
   if(Route[e.parameters.v]){
     return Route[e.parameters.v]();
-  }else if(Route[e.parameters.v]){
-    return Route[e.parameters.v]();
-  }
-  else{
-    return login_page();
+  }else{
+    return home_page();
   }
 }
 
@@ -35,6 +31,13 @@ render dynamic html
 */
 function include(file_name){
   return HtmlService.createHtmlOutputFromFile(file_name).getContent();
+}
+
+/*
+render home page
+*/
+function home_page(){
+  return render("homePage", {title: "Home Page"});
 }
 
 /*

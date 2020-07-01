@@ -1,6 +1,5 @@
 <script>
   document.getElementById("login_btn").addEventListener("click", call_user_login);
-  document.getElementById("covid19-btn").addEventListener("click", get_covid19_dashboard);
   
   /*
   function to show password
@@ -56,18 +55,6 @@
       localStorage.setItem("questions", JSON.stringify(questions));
       console.log("Questions : \n" + questions);
     }).get_questions(user_id);
-  }
-  
-  /*
-  function to render covid19 dashboard
-  */
-  function get_covid19_dashboard(){
-    M.toast({html: 'Loading Dashboard...📊'});
-      google.script.run.withSuccessHandler(
-        function(url){
-          window.open(url+"?v=covid19_dashboard", "_top");
-        }
-      ).web_app_url();
   }
   
 </script>

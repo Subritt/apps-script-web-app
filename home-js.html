@@ -1,0 +1,32 @@
+<script>
+//    document.getElementById("covid19-btn").addEventListener("click", get_covid19_dashboard);
+    
+    document.getElementById("loginpage_btn").addEventListener("click", function(){
+      google.script.run.withSuccessHandler(
+        function(url){
+          window.open(url+"?v=login", "_top");
+        }
+      ).web_app_url();
+    });
+    
+    document.addEventListener("DOMContentLoaded", function(){
+       data.forEach(function(r){
+         addRow(r);
+       });
+    });
+    
+    function addRow(val) {
+      const div = document.createElement('div');
+
+      div.className = 'row';
+      div.innerHTML =     '<div class="divider"></div>'
+                               + '<div class="section">'
+                               + '<h5>' + val[1] +'</h5>'
+                               + '<p>' + val[2] +'</p>'
+                               + '</div>'
+                               + '<div class="divider"></div>';
+
+     document.getElementById('wrapper').appendChild(div);
+   }
+    
+</script>
