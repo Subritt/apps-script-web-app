@@ -75,5 +75,5 @@ function render(file_name, argObj){
       tmp[key] = argObj[key];
     });
   }//END IF
-  return tmp.evaluate(); 
+  return tmp.evaluate();
 }

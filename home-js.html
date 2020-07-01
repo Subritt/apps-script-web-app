@@ -1,6 +1,6 @@
 <script>
-//    document.getElementById("covid19-btn").addEventListener("click", get_covid19_dashboard);
     
+    //NAVIGATE TO LOGIN PAGE
     document.getElementById("loginpage_btn").addEventListener("click", function(){
       google.script.run.withSuccessHandler(
         function(url){
@@ -9,13 +9,24 @@
       ).web_app_url();
     });
     
-    document.addEventListener("DOMContentLoaded", function(){
-       data.forEach(function(r){
+    //    var data = [
+    //      ["question1", "description1"],
+    //      ["question2", "description2"]
+    //    ];
+    
+    function questionHandler(questions){
+       questions.forEach(function(r){
          addRow(r);
        });
+    }
+    
+    document.addEventListener("DOMContentLoaded", function(){
+      console.log("inside DOMContentLoaded");
+      google.script.run.withSuccessHandler(questionHandler).get_all_question();
     });
     
     function addRow(val) {
+      console.log("inside addRow()");
       const div = document.createElement('div');
 
       div.className = 'row';

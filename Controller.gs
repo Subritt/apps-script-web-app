@@ -25,16 +25,27 @@ function user_login(userinfo){
   return[flag, full_name];
 }
 
+/*
+function to get question
+*/
 function get_questions(user_id){
   Logger.log("inside get_questions()");
   var data = get_data("Question");
   var row = data.map(function(user){return user[6]});
   var questions = [];
   
-  for(var i = 0 ; i < row.length ; i++){
-    if(row[i] == user_id){
-      questions.push([data[i][0], data[i][1], data[i][2]]);
+  if(user_id){
+    for(var i = 0 ; i < row.length ; i++){
+      if(row[i] == user_id){
+        questions.push([data[i][0], data[i][1], data[i][2]]);
+      }
     }
+    return questions;
   }
-  return questions;
+  Logger.log(data);
+  return data;
+}
+
+function get_all_question(){
+  return get_data("Question");
 }

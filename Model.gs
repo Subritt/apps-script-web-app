@@ -8,7 +8,7 @@ function to get tabale data
 */
 function get_data(table_name){
   var user_database = spreadsheet.getSheetByName(table_name);
-  var data = user_database.getDataRange().getValues();
+  var data = user_database.getRange(2, 1, user_database.getLastRow()-1, user_database.getLastColumn()).getValues();
   return data;
 }
 

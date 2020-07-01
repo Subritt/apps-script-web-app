@@ -8,10 +8,12 @@
     <?!= //include("view-css"); ?>
   </head>
   <body>
-    <p id="demo"></p>
-    <h3 style="text-align:center; font-family: cursive; margin:3%">Login Page</h3>
     
     <div class="container" style="padding-left:20%; padding-right:20%">
+      <div class="row">
+        <h3 style="text-align:center; font-family: cursive; margin:3%">Login Page</h3>
+        <a id="covid19-btn" class="btn-floating waves-effect waves-light btn blue darken-3 pulse right"><i class="material-icons right">trending_up</i></a><!-- COVID19 DASHBOARD -->
+      </div>
     <div class="row">
       <div class="input-field col s12">
         <label for="username">username</label>
@@ -37,7 +39,6 @@
     <div class="row">
       <div class="input-field col s12">
         <a id="login_btn" class="waves-effect waves-light btn blue darken-3"><i class="material-icons right">computer</i>Login</a>
-        <a id="covid19-btn" class="waves-effect waves-light btn blue darken-3 pulse" style="margin-left:15px"><i class="material-icons right">trending_up</i>Covid19 Dashboard</a>
         <!-- <a href="<?= ScriptApp.getService().getUrl(); ?>?v=profile" class="waves-effect waves-light btn blue darken-3" id="login_btn"><i class="material-icons right">account_circle</i>Profile</a> -->
       </div><!-- CLOSE COLUMN -->
     </div><!-- CLOSE ROW -->
