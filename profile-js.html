@@ -3,35 +3,38 @@
    var questions = JSON.parse(localStorage.getItem("questions"));
    var data = questions;
    console.log("inside profile page : \n" + data);
-   
-//    var data = [
-//      [1, "Dada", 34],
-//      [2, "Subritt", 42],
-//      [3, "Aakrit", 45]
-//    ];
-    
     
     document.addEventListener("DOMContentLoaded", function(){
-        generate_table(data);
+       data.forEach(function(r){
+         addRow(r);
+       });
     });
     
-    function generate_table(dataArray){
-      var tbody = document.getElementById("question_data");
-       
-      dataArray.forEach(function(r){
-         var row = document.createElement("tr");
-         
-         var col1 = document.createElement("td");
-         col1.textContent = r[0];
-         var col2 = document.createElement("td");
-         col2.textContent = r[1];
-         var col3 = document.createElement("td");
-         col3.textContent = r[2];
-         row.appendChild(col1);
-         row.appendChild(col2);
-         row.appendChild(col3);
-         tbody.appendChild(row);
-       });
-    }
+    function addRow(val) {
+      const div = document.createElement('div');
+
+      div.className = 'row';
+      div.innerHTML =     '<div class="divider"></div>'
+                               + '<div class="section">'
+                               + '<h5>' + val[1] +'</h5>'
+                               + '<p>' + val[2] +'</p>'
+                               + '</div>'
+                               + '<div class="divider"></div>';
+
+     document.getElementById('wrapper').appendChild(div);
+   }
+   
+   /*
+   function to logout
+   */
+   document.getElementById('logout_btn').addEventListener('click', function(){
+     M.toast({html : "Logging out...🐱‍🏍"});
+     localStorage.removeItem('questions');
+     google.script.run.withSuccessHandler(
+       function(url){
+         window.open(url, "_top");
+       }
+     ).web_app_url();
+   });
     
 </script>

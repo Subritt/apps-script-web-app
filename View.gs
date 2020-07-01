@@ -10,10 +10,14 @@ function doGet(e){
   //  Logger.log(e.parameters);
   
   Route.path("profile", profile_page);
+  Route.path("covid19_dashboard", covid19_page);
   
   if(Route[e.parameters.v]){
     return Route[e.parameters.v]();
-  }else{
+  }else if(Route[e.parameters.v]){
+    return Route[e.parameters.v]();
+  }
+  else{
     return login_page();
   }
 }
@@ -23,8 +27,8 @@ function to return script url
 */
 function web_app_url(){
   Logger.log(ScriptApp.getService().getUrl());
-  return ScriptApp.getService().getUrl();
-//  return "https://script.google.com/macros/s/AKfycbyhvZydOqLYCHr7VWtUU82uoZrZu6fFdxRhGJekSUiF/dev";
+  //  return ScriptApp.getService().getUrl();
+  return "https://script.google.com/macros/s/AKfycbyhvZydOqLYCHr7VWtUU82uoZrZu6fFdxRhGJekSUiF/dev";
 }
 /*
 render dynamic html
@@ -47,6 +51,13 @@ function profile_page(){
   //window.open("<?= ScriptApp.getService().getUrl(); ?>?v=profile","_parent");
   //window.location.replace("<?= ScriptApp.getService().getUrl(); ?>?v=profile");
   return render("ProfilePage", {title : "Profile Page"});
+}
+
+/*
+render covid19 dashboard
+*/
+function covid19_page(){
+  return render("covid19Page");
 }
 
 /*
