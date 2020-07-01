@@ -29,21 +29,18 @@ function user_login(userinfo){
 function to get question
 */
 function get_questions(user_id){
-  Logger.log("inside get_questions()");
+  Logger.log("inside get_questions()" + user_id);
   var data = get_data("Question");
+  Logger.log(data);
   var row = data.map(function(user){return user[6]});
   var questions = [];
   
-  if(user_id){
     for(var i = 0 ; i < row.length ; i++){
       if(row[i] == user_id){
         questions.push([data[i][0], data[i][1], data[i][2]]);
       }
     }
-    return questions;
-  }
-  Logger.log(data);
-  return data;
+  return questions;
 }
 
 function get_all_question(){

@@ -34,7 +34,8 @@
     console.log("flag : " + login_return[0] + "\n" + "full name : " + login_return[1]);
     if(login_return[0] == 1){
       M.toast({html: 'Logging in...🙂'});
-      get_questions(login_return[2]);
+      localStorage.setItem("userid", login_return[2]);
+
       google.script.run.withSuccessHandler(
         function(url){
           window.open(url+"?v=profile", "_top");
@@ -45,16 +46,6 @@
       M.toast({html: 'Invalid username or password!!! 😕'});
     }
     return;
-  }
-  
-  /*
-  function to get questions for respective user
-  */
-  function get_questions(user_id){
-    google.script.run.withSuccessHandler(function(questions){
-      localStorage.setItem("questions", JSON.stringify(questions));
-      console.log("Questions : \n" + questions);
-    }).get_questions(user_id);
   }
   
 </script>

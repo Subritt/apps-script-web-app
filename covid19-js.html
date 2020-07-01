@@ -6,10 +6,10 @@
   function to render covid19 dashboard
   */
   function get_covid19_dashboard(){
-    M.toast({html: 'Loading Dashboard...📊'});
+    M.toast({html: 'Covid19 Dashboard in new window...📊', displayLength: 2000});
       google.script.run.withSuccessHandler(
         function(url){
-          window.open(url+"?v=covid19_dashboard", "_top");
+          window.open("https://datastudio.google.com/u/2/reporting/2d5337e5-5f92-4c03-b793-c04ced1fecd6/page/vzMPB", "_blank");
         }
       ).web_app_url();
   }

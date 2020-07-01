@@ -1,13 +1,19 @@
 <script>
 
-   var questions = JSON.parse(localStorage.getItem("questions"));
-   var data = questions;
-   console.log("inside profile page : \n" + data);
+   var user_id = localStorage.getItem("userid");
+   console.log("userid : " + user_id);
+   
+   /*
+   success handler function to get questions for respective user
+   */
+   function get_questions(questions){
+     questions.forEach(function(r){
+       addRow(r);
+     });
+   }
     
     document.addEventListener("DOMContentLoaded", function(){
-       data.forEach(function(r){
-         addRow(r);
-       });
+      google.script.run.withSuccessHandler(get_questions).get_questions(user_id);
     });
     
     function addRow(val) {
