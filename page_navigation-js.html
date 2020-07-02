@@ -1,0 +1,44 @@
+<script>
+
+  document.getElementById("covid19-btn").addEventListener("click", get_covid19_dashboard);
+  
+  /*
+  function to render covid19 dashboard
+  */
+  function get_covid19_dashboard(){
+    M.toast({html: 'Covid19 Dashboard in new window...📊', displayLength: 2000});
+      google.script.run.withSuccessHandler(
+        function(url){
+          window.open("https://datastudio.google.com/u/2/reporting/2d5337e5-5f92-4c03-b793-c04ced1fecd6/page/vzMPB", "_blank");
+        }
+      ).web_app_url();
+  }
+  
+    //NAVIGATE TO HOME PAGE
+    document.getElementById("homepage_btn").addEventListener("click", function(){
+      google.script.run.withSuccessHandler(
+        function(url){
+          window.open(url, "_top");
+        }
+      ).web_app_url();
+    });
+    
+    //NAVIGATE TO LOGIN PAGE
+    document.getElementById("loginpage_btn").addEventListener("click", function(){
+      google.script.run.withSuccessHandler(
+        function(url){
+          window.open(url+"?v=login", "_top");
+        }
+      ).web_app_url();
+    });
+    
+    //NAVIGATE TO SIGNUP PAGE
+    document.getElementById("signuppage_btn").addEventListener("click", function(){
+      google.script.run.withSuccessHandler(
+        function(url){
+          window.open(url+"?v=signup", "_top");
+        }
+      ).web_app_url();
+    });
+
+</script>

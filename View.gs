@@ -10,6 +10,7 @@ function doGet(e){
   Route.path("profile", profile_page);
   Route.path("covid19_dashboard", covid19_page);
   Route.path("login", login_page);
+  Route.path("signup", signup_page);
   
   if(Route[e.parameters.v]){
     return Route[e.parameters.v]();
@@ -38,6 +39,13 @@ render home page
 */
 function home_page(){
   return render("homePage", {title: "Home Page"});
+}
+
+/*
+render signup page
+*/
+function signup_page(){
+  return render("signupPage", {title : "Signup Page"});
 }
 
 /*

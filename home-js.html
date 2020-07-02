@@ -1,14 +1,5 @@
 <script>
     
-    //NAVIGATE TO LOGIN PAGE
-    document.getElementById("loginpage_btn").addEventListener("click", function(){
-      google.script.run.withSuccessHandler(
-        function(url){
-          window.open(url+"?v=login", "_top");
-        }
-      ).web_app_url();
-    });
-    
     /*
     success handler for getting all questions
     */

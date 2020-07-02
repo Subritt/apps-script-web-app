@@ -12,7 +12,9 @@
     <div class="container" style="padding-left:20%; padding-right:20%">
       <div class="row">
         <h3 style="text-align:center; font-family: cursive; margin:3%">Login Page</h3>
-        <a id="covid19-btn" class="btn-floating waves-effect waves-light btn blue darken-3 pulse right"><i class="material-icons right">trending_up</i></a><!-- COVID19 DASHBOARD -->
+        <a id="covid19-btn" class="btn-floating waves-effect waves-light btn blue darken-3 pulse right" style="margin:5px"><i class="material-icons right">trending_up</i></a><!-- COVID19 DASHBOARD -->
+        <a id="homepage_btn" class="btn-floating waves-effect waves-light btn blue darken-3 right" style="margin:5px"><i class="material-icons right">home</i></a><!-- HOME -->
+        <a id="signuppage_btn" class="waves-effect waves-light btn blue darken-3 right" style="margin:5px"><i class="material-icons right">expand_less</i>Signup</a><!-- SIGNUP -->
       </div>
     <div class="row">
       <div class="input-field col s12">
@@ -37,8 +39,8 @@
       </div><!-- CLOSE COLUMN -->
     </div><!-- CLOSE ROW -->
     <div class="row">
-      <div class="input-field col s12">
-        <a id="login_btn" class="waves-effect waves-light btn blue darken-3"><i class="material-icons right">computer</i>Login</a>
+      <div class="button col">
+        <a id="login_btn" class="waves-effect waves-light btn blue darken-3" style="margin:5px"><i class="material-icons right">chevron_right</i>Login</a><!-- LOGIN -->
         <!-- <a href="<?= ScriptApp.getService().getUrl(); ?>?v=profile" class="waves-effect waves-light btn blue darken-3" id="login_btn"><i class="material-icons right">account_circle</i>Profile</a> -->
       </div><!-- CLOSE COLUMN -->
     </div><!-- CLOSE ROW -->
@@ -46,6 +48,6 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <?!= include("view-js"); ?>
-    <?!= include("covid19-js"); ?>
+    <?!= include("page_navigation-js"); ?>
   </body>
 </html>
