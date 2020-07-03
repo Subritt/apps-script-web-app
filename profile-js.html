@@ -1,6 +1,6 @@
 <script>
 
-   var user_id = localStorage.getItem("userid");
+   var user_id = sessionStorage.getItem("userid");
    console.log("userid : " + user_id);
    
    /*
@@ -35,7 +35,7 @@
    */
    document.getElementById('logout_btn').addEventListener('click', function(){
      M.toast({html : "Logging out...🐱‍🏍"});
-     localStorage.removeItem('userid');
+     sessionStorage.removeItem('userid');
      google.script.run.withSuccessHandler(
        function(url){
          window.open(url, "_top");

@@ -34,14 +34,8 @@
     console.log("flag : " + login_return[0] + "\n" + "full name : " + login_return[1]);
     if(login_return[0] == 1){
       M.toast({html: 'Logging in...🙂'});
-      localStorage.setItem("userid", login_return[2]);
-
-      google.script.run.withSuccessHandler(
-        function(url){
-          window.open(url+"?v=profile", "_top");
-        }
-      ).web_app_url();
-
+      sessionStorage.setItem("userid", login_return[2]);
+      profile_page();//CALLING profile_page() INSIDE page_navigation-js.html
     }else{
       M.toast({html: 'Invalid username or password!!! 😕'});
     }
