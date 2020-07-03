@@ -13,6 +13,7 @@
    }
     
     document.addEventListener("DOMContentLoaded", function(){
+      active_user()
       google.script.run.withSuccessHandler(get_questions).get_questions(user_id);
     });
     
@@ -30,17 +31,11 @@
      document.getElementById('wrapper').appendChild(div);
    }
    
-   /*
-   function to logout
-   */
-   document.getElementById('logout_btn').addEventListener('click', function(){
-     M.toast({html : "Logging out...🐱‍🏍"});
-     sessionStorage.removeItem('userid');
-     google.script.run.withSuccessHandler(
-       function(url){
-         window.open(url, "_top");
-       }
-     ).web_app_url();
-   });
-    
+   function active_user(){
+     var div_main = document.getElementById('profile_nav_bar');
+     var full_name = sessionStorage.getItem("fullname");
+     div_main.innerHTML += '<div class="chip right" style="margin:10px">' + '<b style="font-size:14px">' + full_name + '</b>' + '</div>';
+     return;
+   }   
+   
 </script>

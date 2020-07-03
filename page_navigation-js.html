@@ -50,5 +50,16 @@
         }
       ).web_app_url();
     }
+    
+    //FUNCTION TO LOGOUT
+    function logout(){
+      M.toast({html : "Logging out...🐱‍🏍"});
+      sessionStorage.clear();
+      google.script.run.withSuccessHandler(
+        function(url){
+          window.open(url, "_top");
+        }
+      ).web_app_url();
+    }
 
 </script>

@@ -35,6 +35,7 @@
     if(login_return[0] == 1){
       M.toast({html: 'Logging in...🙂'});
       sessionStorage.setItem("userid", login_return[2]);
+      sessionStorage.setItem("fullname", login_return[1]);
       profile_page();//CALLING profile_page() INSIDE page_navigation-js.html
     }else{
       M.toast({html: 'Invalid username or password!!! 😕'});

@@ -13,7 +13,7 @@ function user_login(userinfo){
       full_name = data[i][1];
       flag = 1;
       Logger.log("Hello " + full_name);
-      set_data(i+1, 11, new Date(), "Users");
+      set_data(i+2, 11, new Date(), "Users");
       Logger.log(data[i][0]);
       //      var questions = get_questions(data[i][0]);
       //      Logger.log(questions);
@@ -42,7 +42,9 @@ function get_questions(user_id){
     }
   return questions;
 }
-
+/*
+function get overall question
+*/
 function get_all_question(){
   return get_data("Question");
 }

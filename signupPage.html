@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <?!= //include("view-css"); ?>
+    <?!= include("view-css"); ?>
   </head>
   <body>
     
@@ -14,7 +14,7 @@
         <h3 style="text-align:center; font-family: cursive; margin:3%"><?=title?></h3>
         <a onclick="get_covid19_dashboard()" id="covid19-btn" class="btn-floating waves-effect waves-light btn blue darken-3 pulse right" style="margin:5px"><i class="material-icons right">trending_up</i></a><!-- COVID19 DASHBOARD -->
         <a onclick="home_page()" id="homepage_btn" class="btn-floating waves-effect waves-light btn blue darken-3 right" style="margin:5px"><i class="material-icons right">home</i></a><!-- HOME -->
-        <a onclick="login_page()" id="loginpage_btn" class="waves-effect waves-light btn blue darken-3 right" style="margin:5px"><i class="material-icons right">chevron_right</i>Login</a><!-- LOGIN -->
+        <a onclick="login_page()" id="loginpage_btn" class="waves-effect waves-light btn blue darken-3 right"><i class="material-icons right">chevron_right</i>Login</a><!-- LOGIN -->
       </div><!-- CLOSE ROW -->
       
       <div class="row">
