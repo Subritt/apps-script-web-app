@@ -17,12 +17,33 @@ function user_login(userinfo){
       Logger.log(data[i][0]);
       //      var questions = get_questions(data[i][0]);
       //      Logger.log(questions);
-      return [flag, full_name, data[i][0]];
+      return [flag, capitalize(full_name), data[i][0]];
     }
   }
   
   Logger.log("Invalid username or password");
   return[flag, full_name];
+}
+
+/*
+function to capitalize name
+*/
+function capitalize(full_name){
+  Logger.log(full_name.split(" ").length);
+  if(full_name.split(" ").length == 2){
+    return full_name.split(" ")[0].charAt(0).toUpperCase() + full_name.split(" ")[0].slice(1)
+           + " " 
+           + full_name.split(" ")[1].charAt(0).toUpperCase() + full_name.split(" ")[1].slice(1);
+  }else if(full_name.split(" ").length == 3){
+    return full_name.split(" ")[0].charAt(0).toUpperCase() + full_name.split(" ")[0].slice(1)
+           + " "
+           + full_name.split(" ")[1].charAt(0).toUpperCase() + full_name.split(" ")[1].slice(1)
+           + " "
+           + full_name.split(" ")[2].charAt(0).toUpperCase() + full_name.split(" ")[2].slice(1);
+  }else{
+    return full_name.split(" ")[0].charAt(0).toUpperCase() + full_name.split(" ")[0].slice(1);
+  }
+
 }
 
 /*
