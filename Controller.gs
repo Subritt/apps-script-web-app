@@ -42,9 +42,17 @@ function get_questions(user_id){
     }
   return questions;
 }
+
 /*
 function get overall question
 */
 function get_all_question(){
   return get_data("Question");
+}
+
+/*
+get oveall professions
+*/
+function get_all_professions(){
+  return get_data("Profession");
 }

@@ -1,0 +1,22 @@
+<script>
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    google.script.run.withSuccessHandler(set_professions).get_all_professions();
+  });
+  
+  //FUNCTION TO SET DYNAMIC SELECT INPUT
+  function set_professions(professions){
+    professions.forEach(function(row){
+      if(row[1] != ""){
+        console.log(profession);
+        var profession_div = document.getElementById("profession");
+        profession_div.innerHTML += '<option value="1">' + row[1] + '</option>';
+      }
+    });
+    
+    //INITIALIZING SELECT ELEMENT
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems);
+  }
+  
+</script>

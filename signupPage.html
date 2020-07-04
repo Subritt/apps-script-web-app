@@ -45,15 +45,18 @@
         <div class="row">
           <div class="input-field col s6">
             <i class="material-icons prefix">school</i>
-            <input id="username" type="text" class="validate">
-            <label for="username">School</label>
+            <input id="school" type="text" class="validate">
+            <label for="school">School</label>
+            <span class="helper-text s6">school name, address</span>
           </div><!-- CLOSE COLUMN -->
           
           <div class="input-field col s6">
             <i class="material-icons prefix">work</i>
-            <input id="username" type="text" class="validate">
-            <label for="username">Profession</label>
-          </div><!-- CLOSE COLUMN -->
+            <select id="profession">
+              <option value="" disabled selected>Choose your option</option>
+           </select>
+           <label for="profession">Profession</label>
+         </div><!-- CLOSE COLUMN -->
         </div><!-- CLOSE ROW -->
         
         <div class="row">
@@ -83,7 +86,7 @@
     </div><!-- CLOSE CONTAINER -->
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <?!= include("home-js"); ?>
+    <?!= include("signup-js"); ?>
     <?!= include("page_navigation-js"); ?>
   </body>
 </html>
