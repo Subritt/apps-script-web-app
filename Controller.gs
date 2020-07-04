@@ -9,11 +9,11 @@ function user_login(userinfo){
   var full_name = "";
   
   for(var i = 0 ; i < data.length ; i++){
-    if(data[i][2] == userinfo.user_name && data[i][3] == userinfo.password){
+    if(data[i][3] == userinfo.user_name && data[i][4] == userinfo.password){
       full_name = data[i][1];
       flag = 1;
       Logger.log("Hello " + full_name);
-      set_data(i+2, 11, new Date(), "Users");
+      set_data(i+2, 14, new Date(), "Users");
       Logger.log(data[i][0]);
       //      var questions = get_questions(data[i][0]);
       //      Logger.log(questions);
