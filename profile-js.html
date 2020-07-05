@@ -40,7 +40,7 @@
    function active_user(){
      var div_main = document.getElementById('profile_nav_bar');
      var full_name = sessionStorage.getItem("fullname");
-     div_main.innerHTML += '<div class="chip right" style="margin:10px">' + '<b style="font-size:14px">' + full_name + '</b>' + '</div>';
+     div_main.innerHTML += '<div id="name_chip" class="chip right" style="margin:10px">' + '<b style="font-size:14px">' + full_name + '</b>' + '</div>';
      return;
    }   
    

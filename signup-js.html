@@ -4,6 +4,19 @@
     google.script.run.withSuccessHandler(set_professions).get_all_professions();
   });
   
+  /*
+  function to show password
+  */
+  function show_password(){
+   console.log("checkbox val : " + document.getElementById("view_pwd_checkbox").value);
+   var check_box = document.getElementById("password");
+     if(check_box.type === "password"){
+       check_box.type = "text";
+     }else{
+       check_box.type = "password";
+    }
+  }
+  
   //FUNCTION TO SET DYNAMIC SELECT INPUT
   function set_professions(professions){
     professions.forEach(function(row){
@@ -17,6 +30,61 @@
     //INITIALIZING SELECT ELEMENT
     var elems = document.querySelectorAll('select');
     var instances = M.FormSelect.init(elems);
+  }
+  
+  //signup logic
+  function signup_function(){
+    var to_validate = {
+      full_name: "Full Name Required!",
+      email: "Email Required!",
+      school: "School Required!",
+      profession: "Please Choose Your Profession!",
+      username: "Enter a Username!",
+      password: "Enter a Password!",
+      telephone: "Phone number not matched!"
+    };
+    
+    var id_keys = Object.keys(to_validate);
+    
+    var all_valid = true;
+    id_keys.forEach(function(id){
+      var is_valid = check_if_valid(id, to_validate[id]);
+      if(!is_valid){
+        all_valid = false;
+      }
+    });
+    
+    if(all_valid){
+      M.toast({html: "user added!"});
+    }
+    
+  }
+  
+  //CHECK VALID
+  function check_if_valid(elID, message){
+    var is_valid = document.getElementById(elID).checkValidity();
+    var el_value = document.getElementById(elID).value;
+    console.log(el_value);
+    
+    if(!is_valid){
+      M.toast({html: message});
+      return false;
+    }
+    
+    if(elID == "school"){
+      if(el_value.split(',')[1] == undefined){
+        M.toast({html: "Please add school's address!"});
+        return false;
+      }
+    }
+    
+    if(elID == "telephone"){
+      if(el_value.split('-')[1] == undefined){
+        M.toast({html: "Phone number not valid!"});
+        return false;
+      }
+    }
+    return true;
   }
   
 </script>

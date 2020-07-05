@@ -50,7 +50,7 @@
          var full_name = sessionStorage.getItem("fullname");
          div_main.innerHTML += '<a onclick="profile_page()" id="profilepage_btn" class="btn-floating waves-effect waves-light btn blue darken-3 right" style="margin:5px"><i class="material-icons right">account_circle</i></a>';
          div_main.innerHTML +='<a onclick="logout()" id="logout_btn" class="waves-effect waves-light btn blue darken-3 left"><i class="material-icons right">chevron_left</i>Logout</a>'
-         div_main.innerHTML += '<div class="chip right" style="margin:10px">' + '<b style="font-size:14px">' + full_name + '</b>' + '</div>';
+         div_main.innerHTML += '<div id="name_chip" class="chip right" style="margin:10px">' + '<b style="font-size:14px">' + full_name + '</b>' + '</div>';
       }else{
         div_main.innerHTML += '<a onclick="login_page()" id="loginpage_btn" class="waves-effect waves-light btn blue darken-3 right"><i class="material-icons right">chevron_right</i>Login</a>'
         div_main.innerHTML += '<a onclick="signup_page()" id="signuppage_btn" class="waves-effect waves-light btn blue darken-3 right"><i class="material-icons right">expand_less</i>Signup</a>';
