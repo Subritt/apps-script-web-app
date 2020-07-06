@@ -2,7 +2,6 @@
 Function to check user in database and
 login them to home page
 */
-
 function user_login(userinfo){
   var data = get_data("Users");
   var flag = 0;
@@ -21,6 +20,42 @@ function user_login(userinfo){
   
   Logger.log("Invalid username or password");
   return[flag, full_name];
+}
+
+/*
+function to check username validation for signup
+*/
+function signup_check(user_name){
+  var data = get_data("Users");
+  
+  for(var i = 0 ; i < data.length ; i++){
+    return (data[i][2] == user_name) ? 1 : 0;
+  }
+}
+
+/*
+function to add user
+      full_name: "Full Name Required!",
+      email: "Email Required!",
+      school: "School Required!",
+      profession: "Please Choose Your Profession!",
+      username: "Enter a Username!",
+      password: "Enter a Password!",
+      telephone: "Phone number not matched!"
+*/
+function add_user(userinfo){
+  var data = [
+    "",
+    userinfo["full_name"],
+    userinfo["username"],
+    userinfo["password"],
+    userinfo["email"],
+    userinfo["telephone"],
+    userinfo["school"],
+    userinfo["profession"],
+  ];
+    
+  append_row("Users", data);
 }
 
 /*

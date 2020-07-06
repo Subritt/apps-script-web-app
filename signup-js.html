@@ -23,7 +23,7 @@
       if(row[1] != ""){
         console.log(profession);
         var profession_div = document.getElementById("profession");
-        profession_div.innerHTML += '<option value="1">' + row[1] + '</option>';
+        profession_div.innerHTML += '<option>' + row[1] + '</option>';
       }
     });
     
@@ -32,7 +32,7 @@
     var instances = M.FormSelect.init(elems);
   }
   
-  //signup logic
+  //SIGNUP LOGIC
   function signup_function(){
     var to_validate = {
       full_name: "Full Name Required!",
@@ -54,10 +54,28 @@
       }
     });
     
-    if(all_valid){
-      M.toast({html: "user added!"});
-    }
+    //ADDING USERS
+    var username = document.getElementById('username').value;
+    google.script.run.withSuccessHandler(function(flag){
+        if(flag == 0 && all_valid){
+          user_check(id_keys);
+        }else{
+          M.toast({html : "Username already taken"});
+        }
+      }).signup_check(username);
     
+  }
+  
+  //USER CHECK SUCCESS HANDLER
+  function user_check(id_keys){
+    var userinfo = {};
+    id_keys.forEach(function(id){
+      var el_value = document.getElementById(id).value;
+      userinfo[id] = el_value;
+    });
+    console.log(userinfo);
+    google.script.run.add_user(userinfo);
+    M.toast({html: "user added!"});
   }
   
   //CHECK VALID

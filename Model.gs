@@ -3,6 +3,19 @@ function to get user info
 */
 var spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
 
+function test(){
+    var table = spreadsheet.getSheetByName("Users");
+  table.appendRow(["",1,2,3,4]);
+}
+
+/*
+function to append_data
+*/
+function append_row(table_name, data){
+  var table = spreadsheet.getSheetByName(table_name);
+  table.appendRow(data);
+}
+
 /*
 function to get tabale data
 */
