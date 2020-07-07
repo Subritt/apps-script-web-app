@@ -29,8 +29,11 @@ function signup_check(user_name){
   var data = get_data("Users");
   
   for(var i = 0 ; i < data.length ; i++){
-    return (data[i][2] == user_name) ? 1 : 0;
+    if(data[i][2] == user_name){
+      return 1;
+    }
   }
+  return 0;
 }
 
 /*

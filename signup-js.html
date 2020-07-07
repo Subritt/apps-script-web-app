@@ -56,10 +56,12 @@
     
     //ADDING USERS
     var username = document.getElementById('username').value;
+    console.log("Username : " + username);
     google.script.run.withSuccessHandler(function(flag){
+      console.log("check_flag : " + flag);
         if(flag == 0 && all_valid){
           user_check(id_keys);
-        }else{
+        }else if(flag == 1){
           M.toast({html : "Username already taken"});
         }
       }).signup_check(username);
@@ -76,6 +78,10 @@
     console.log(userinfo);
     google.script.run.add_user(userinfo);
     M.toast({html: "user added!"});
+    
+    google.script.run.withSuccessHandler(function(url){
+      window.open(url+"?v=login", "_top")
+    }).web_app_url();
   }
   
   //CHECK VALID
