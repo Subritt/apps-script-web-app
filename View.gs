@@ -11,6 +11,7 @@ function doGet(e){
   Route.path("covid19_dashboard", covid19_page);
   Route.path("login", login_page);
   Route.path("signup", signup_page);
+  Route.path("answer", answer_page);
   
   if(Route[e.parameters.v]){
     return Route[e.parameters.v]();
@@ -53,6 +54,13 @@ render login page
 */
 function login_page(){
   return render("LoginForm");
+}
+
+/*
+render answer page
+*/
+function answer_page(){
+  return render("answerPage");
 }
 
 /*

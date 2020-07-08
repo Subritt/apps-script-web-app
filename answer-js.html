@@ -1,0 +1,34 @@
+<script>
+      /*
+    success handler for getting all questions
+    */
+    function questionHandler(questions){
+       questions.forEach(function(r){
+         addRow(r);
+       });
+    }
+    
+    document.addEventListener("DOMContentLoaded", function(){
+      console.log("inside DOMContentLoaded");
+      dynamic_element();
+      google.script.run.withSuccessHandler(questionHandler).get_all_question();
+    });
+    
+    /*
+    adding html elements
+    */
+    function addRow(val) {
+      console.log("inside addRow()");
+      const div = document.createElement('div');
+
+      div.className = 'row';
+      div.innerHTML =     '<div class="divider"></div>'
+                               + '<div class="section">'
+                               + '<h5>' + val[1] +'</h5>'
+                               + '<p>' + val[2] +'</p>'
+                               + '</div>'
+                               + '<div class="divider"></div>';
+
+     document.getElementById('wrapper').appendChild(div);
+   }
+</script>
