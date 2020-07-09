@@ -101,10 +101,20 @@ function get_questions(user_id){
 }
 
 /*
-function get overall question
+function to get overall question
 */
 function get_all_question(){
   return get_data("Question");
+}
+
+/*
+function to get answers
+*/
+function get_answers(){
+  //  var answers = get_data("Answer");
+  //  Logger.log(answers);
+  //  answers.forEach(function(r){Logger.log(r)});
+  return get_data("Answer");
 }
 
 /*

@@ -2,15 +2,16 @@
       /*
     success handler for getting all questions
     */
-    function questionHandler(questions){
-       questions.forEach(function(r){
+    function answerHandler(answers){
+       console.log("answers : " + answers);
+       answers.forEach(function(r){
          addRow(r);
        });
     }
     
     document.addEventListener("DOMContentLoaded", function(){
       console.log("inside DOMContentLoaded");
-      google.script.run.withSuccessHandler(questionHandler).get_all_question();
+      google.script.run.withSuccessHandler(answerHandler).get_answers();
     });
     
     /*
@@ -24,7 +25,7 @@
       div.innerHTML =     '<div class="divider"></div>'
                                + '<div class="section">'
                                + '<h5>' + val[1] +'</h5>'
-                               + '<p>' + val[2] +'</p>'
+//                               + '<p>' + val[2] +'</p>'
                                + '</div>'
                                + '<div class="divider"></div>';
 
