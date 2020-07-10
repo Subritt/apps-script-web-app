@@ -111,10 +111,11 @@ function get_all_question(){
 function to get answers
 */
 function get_answers(){
-  //  var answers = get_data("Answer");
-  //  Logger.log(answers);
+  var answers = get_data("Answer");
+  Logger.log(answers);
   //  answers.forEach(function(r){Logger.log(r)});
-  return get_data("Answer");
+  return answers;
+//  return [['answer_1','first create a router and then dynamically render the pages for every route.','','','','user_2','44013.7224401042','question_1'],['answer_2','Genius guy','','','','user_1','44021.9912517477','question_2']]
 }
 
 /*
