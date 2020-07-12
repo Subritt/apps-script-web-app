@@ -119,6 +119,19 @@ function get_answers(){
 }
 
 /*
+function to get username data
+*/
+function get_username(user_id){
+  var user_data = get_data("Users");
+  
+  for(var i = 0 ; i < user_data.length ; i++){
+    if(user_data[i][0] == user_id){
+      return user_data[i][1];
+    }
+  }
+}
+
+/*
 get oveall professions
 */
 function get_all_professions(){

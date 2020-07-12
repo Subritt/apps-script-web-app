@@ -21,14 +21,17 @@
     function addRow(val) {
       console.log("inside addRow()");
       const div = document.createElement('div');
-
+      
       div.className = 'row';
-      div.innerHTML =     `<div class="divider"></div>
+      
+      google.script.run.withSuccessHandler(function(username){
+        div.innerHTML =     `<div class="divider"></div>
                                 <div class="section">
                                 <h6>${val[1]}</h6>
-                                <p class="right">${val[6]}</p>
+                                <p class="right">${username}</p>
                                 </div>
                                 <div class="divider"></div>`;
+      }).get_username(val[6]);
 
      document.getElementById('wrapper').appendChild(div);
    }
