@@ -10,7 +10,6 @@
     }
     
     document.addEventListener("DOMContentLoaded", function(){
-      console.log("inside DOMContentLoaded");
       dynamic_element();
       google.script.run.withSuccessHandler(questionHandler).get_all_question();
     });
@@ -19,7 +18,6 @@
     adding html elements
     */
     function addRow(val) {
-      console.log("inside addRow()");
       const div = document.createElement('div');
       
       div.className = 'row';
@@ -27,13 +25,25 @@
       google.script.run.withSuccessHandler(function(username){
         div.innerHTML =     `<div class="divider col s12"></div>
                                 <div class="section">
-                                 <a href="#">${val[1]}</a>
-                                 <div><p id="username" class="right">${username}</p></div>
+                                 <a id="${val[0]}">${val[1]}</a>
+                                 <p id="username" class="right">asked by: ${username}</p>
                                </div>
                              <div class="divider col s12"></div>`;
       }).get_username(val[6]);
 
      document.getElementById('wrapper').appendChild(div);
+   }
+   
+//   document.addEventListener('click', answerPage);
+   
+   // Render Answer page when question is clicked
+   function answerPage(){
+     
+     if(){
+       
+     }
+     
+     //     sessionStorage.setItem('questionId', id);
    }
    
    /*
@@ -44,10 +54,8 @@
    <a id="logout_btn" class="waves-effect waves-light btn blue darken-3 right"><i class="material-icons right">chevron_left</i>Logout</a><!-- LOGOUT -->
    */
    function dynamic_element(){
-     console.log("inside dynamic_element()");
      var div_main = document.getElementById('home_btn_collection');
      var session_id = sessionStorage.getItem("userid");
-     console.log("session_id : " + session_id);
      
      if(session_id){
          var full_name = sessionStorage.getItem("fullname");
