@@ -25,8 +25,8 @@
       google.script.run.withSuccessHandler(function(username){
         div.innerHTML =     `<div class="divider col s12"></div>
                                 <div class="section">
-                                 <a id="${val[0]}">${val[1]}</a>
-                                 <p id="username" class="right">asked by: ${username}</p>
+                                 <a onclick='answer_page()' id="${val[0]}" class="question">${val[1]}</a>
+                                 <p class="right">asked by: <span id="username">${username}</span></p>
                                </div>
                              <div class="divider col s12"></div>`;
       }).get_username(val[6]);
@@ -34,17 +34,20 @@
      document.getElementById('wrapper').appendChild(div);
    }
    
-//   document.addEventListener('click', answerPage);
-   
-   // Render Answer page when question is clicked
-   function answerPage(){
-     
-     if(){
-       
+   // Render Answer page when clicked
+   function renderAnswer(el){
+     if(el.className == "question"){
+       let question_id = el.id;
+       console.log(question_id);
+       localStorage.setItem('question_id', question_id);
+//       document.querySelector(`#${question_id}`).setAttribute('onclick', 'answer_page()');
      }
-     
-     //     sessionStorage.setItem('questionId', id);
    }
+   
+   // Event: Render Answer page when question is clicked
+   document.querySelector('#wrapper').addEventListener('click', (e) => {
+     renderAnswer(e.target);
+   });
    
    /*
    function to choose button view

@@ -19,6 +19,15 @@
       ).web_app_url();
     }
     
+    //NAVIGATION TO ANSWER PAGE
+    function answer_page(){
+      google.script.run.withSuccessHandler(
+        function(url){
+          window.open(url+"?v=answer", "_top");
+        }
+      ).web_app_url();
+    }
+    
     //NAVIGATION TO PROFILE PAGE
     function profile_page(){
       if(sessionStorage.getItem("userid")){

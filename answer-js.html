@@ -4,8 +4,11 @@
     */
     function answerHandler(answers){
        console.log("answers : " + answers);
+       const question_id = localStorage.getItem('question_id');
        answers.forEach(function(r){
-         addRow(r);
+         if(r[6] === question_id){
+           addRow(r);
+         }
        });
     }
     
