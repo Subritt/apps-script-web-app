@@ -24,12 +24,15 @@
       const div = document.createElement('div');
 
       div.className = 'row';
-      div.innerHTML =     '<div class="divider"></div>'
-                               + '<div class="section">'
-                               + '<h5>' + val[1] +'</h5>'
-                               + '<p>' + val[2] +'</p>'
-                               + '</div>'
-                               + '<div class="divider"></div>';
+
+     div.innerHTML = `
+       <div class="divider"></div>
+       <div class="section">
+       <a onclick='answer_page()' id="${val[0]}" class="question">${val[1]}</a>
+       <p>answered by: <span id="username">${val[2]}</span></p>
+       </div>
+       <div class="divider"></div>
+     `;
 
      document.getElementById('wrapper').appendChild(div);
    }
