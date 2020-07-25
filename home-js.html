@@ -10,6 +10,9 @@
     }
     
     document.addEventListener("DOMContentLoaded", function(){
+      if(localStorage.getItem('question_id')){
+        localStorage.removeItem('question_id');
+      }
       dynamic_element();
       google.script.run.withSuccessHandler(questionHandler).get_all_question();
     });
