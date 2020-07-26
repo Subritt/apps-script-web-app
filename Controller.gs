@@ -94,7 +94,7 @@ function get_questions(user_id){
   
     for(var i = 0 ; i < row.length ; i++){
       if(row[i] == user_id){
-        questions.push([data[i][0], data[i][1], data[i][2]]);
+        questions.push(data[i]);
       }
     }
   return questions;

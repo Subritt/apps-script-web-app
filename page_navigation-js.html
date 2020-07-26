@@ -12,9 +12,7 @@
     
     //NAVIGATE TO HOME PAGE
     function home_page(){
-      if(localStorage.getItem('question_id')){
-        localStorage.removeItem('question_id');
-      }
+
       google.script.run.withSuccessHandler(
         function(url){
           window.open(url, "_top");
