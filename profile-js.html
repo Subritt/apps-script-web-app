@@ -15,7 +15,10 @@
    }
     
     document.addEventListener("DOMContentLoaded", function(){
-      active_user()
+      if(localStorage.getItem('question_id')){
+        localStorage.removeItem('question_id');
+      }
+      active_user();
       google.script.run.withSuccessHandler(get_questions).get_questions(user_id);
     });
     
